@@ -32,8 +32,8 @@ A Kenya-based digital goods marketplace. Zero inventory, instant downloads, agen
 
 ```bash
 # 1 — clone and bootstrap
-git clone https://github.com/karanjaofficial25flow-hue/ucp-mcp.git
-cd ~/MCP/ucp-mcp
+git clone https://github.com/jaguar999paw-droid/UCP-mcp-.git
+cd UCP-mcp-
 chmod +x setup.sh && ./setup.sh
 
 # 2 — start the UCP backend
@@ -76,25 +76,32 @@ POST /ucp/orders/{oid}/cancel
 
 ## Claude Desktop config entry
 
-Already written to `~/.config/claude/claude_desktop_config.json` and
-`~/.config/Claude/claude_desktop_config.json` by the setup process.
+Add this to `~/.config/Claude/claude_desktop_config.json` under `mcpServers`:
 
 ```json
 "ucp-mcp": {
-  "command": "/home/kamau/MCP/ucp-mcp/venv/bin/python",
-  "args": ["/path/to/MCP/ucp-mcp/server.py"],
+  "command": "/path/to/UCP-mcp-/venv/bin/python",
+  "args": ["/path/to/UCP-mcp-/server.py"],
   "env": {
     "UCP_BASE_URL": "http://localhost:8100",
-    "UCP_PAYMENT_SECRET": "kitudigital-dev-secret-2026"
+    "UCP_PAYMENT_SECRET": "your-secret-here"
   }
 }
 ```
+
+> Replace `/path/to/UCP-mcp-` with the absolute path where you cloned this repo.  
+> Replace `your-secret-here` with a strong secret (or keep the dev default for local testing).
 
 ## Protocol compatibility
 
 UCP is interoperable with MCP, A2A, and AP2. This server uses MCP as the transport binding,
 with REST as the underlying backend protocol — exactly the architecture described in the
 [UCP spec](https://github.com/Universal-Commerce-Protocol/ucp).
+
+## Contributing
+
+This repo is a fork maintained for active development. Upstream:
+[karanjaofficial25flow-hue/ucp-mcp](https://github.com/karanjaofficial25flow-hue/ucp-mcp)
 
 ## License
 
